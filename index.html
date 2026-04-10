@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishita's Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
+      color: #333;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      font-weight: 400;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating particles animation */
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .particle:nth-child(1) {
+      left: 20%;
+      width: 80px;
+      height: 80px;
+      animation-delay: 0s;
+    }
+
+    .particle:nth-child(2) {
+      left: 20%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 2s;
+      animation-duration: 12s;
+    }
+
+    .particle:nth-child(3) {
+      left: 25%;
+      width: 25px;
+      height: 25px;
+      animation-delay: 4s;
+    }
+
+    .particle:nth-child(4) {
+      left: 40%;
+      width: 60px;
+      height: 60px;
+      animation-delay: 0s;
+      animation-duration: 18s;
+    }
+
+    .particle:nth-child(5) {
+      left: 70%;
+      width: 20px;
+      height: 20px;
+      animation-delay: 1s;
+    }
+
+    .particle:nth-child(6) {
+      left: 80%;
+      width: 120px;
+      height: 120px;
+      animation-delay: 3s;
+      animation-duration: 16s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) scale(0); }
+      50% { transform: translateY(-100px) scale(1); }
+    }
+
+    .container {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    @keyframes titleGlow {
+      from { filter: drop-shadow(0 0 5px rgba(102, 126, 234, 0.5)); }
+      to { filter: drop-shadow(0 0 20px rgba(118, 75, 162, 0.8)); }
+    }
+
+    .profile-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .profile-text {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .profile-text p {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-style: italic;
+      color: #555;
+      line-height: 1.6;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .profile-image {
+      flex-shrink: 0;
+    }
+
+    .profile-image img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .profile-image img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #4a5568;
+      border-bottom: 3px solid transparent;
+      background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+      background-size: 100% 3px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+
+    .skills ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skills li {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      color: white;
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skills li::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .skills li:hover::before {
+      left: 100%;
+    }
+
+    .skills li:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    .project-card {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+      color: white;
+      border: none;
+      padding: 30px;
+      border-radius: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(5deg);
+      box-shadow: 0 25px 60px rgba(240, 147, 251, 0.6);
+    }
+
+    .project-card:nth-child(even) {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 50%, #d299c2 100%);
+      color: #333;
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .project-card p {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .project-card a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .project-card a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      color: #667eea;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 15px 25px;
+      border: 3px solid #667eea;
+      border-radius: 30px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      transition: left 0.4s ease;
+      z-index: -1;
+    }
+
+    .contact-links a:hover::before {
+      left: 0;
+    }
+
+    .contact-links a:hover {
+      color: white;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      margin-top: 40px;
+      padding: 30px;
+      font-family: 'Merriweather', serif;
+      font-weight: 400;
+    }
+
+    footer p:first-child {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    footer p:last-child {
+      font-size: 1.2rem;
+      font-style: italic;
+      background: linear-gradient(45deg, #f093fb, #f5576c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .resume-download {
+      display: inline-block;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      color: white;
+      padding: 18px 35px;
+      border-radius: 35px;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .resume-download::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.6s;
+    }
+
+    .resume-download:hover::before {
+      left: 100%;
+    }
+
+    .resume-download:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    }
+
+    @media (max-width: 768px) {
+      .profile-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .container {
+        width: 95%;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="particles">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Rishita Jha</h1>
+      <div class="profile-section">
+        <div class="profile-text">
+          <p>B.Tech CSE Student | Web Learner | C++ Enthusiast</p>
+        </div>
+        <div class="profile-image">
+          <img src="IMG_20250720_215716.jpg" alt="Rishita Jha - CSE Student">
+        </div>
+      </div>
+    </header>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li>HTML ⭐⭐⭐⭐☆</li>
+        <li>CSS ⭐⭐⭐⭐☆</li>
+         <li>JAVASCRIPT ⭐⭐⭐⭐☆</li>
+        <li>C++ ⭐⭐⭐⭐☆</li>
+        <li>Git (basic) ⭐⭐⭐☆☆</li>
+        <li>SQL ⭐⭐⭐⭐⭐</li>
+      </ul>
+    </section>
+
+    <section class="projects">
+      <h2>Projects</h2>
+      <div class="project-card">
+        <h3>🌸 Femicare</h3>
+        <p>A C++ console app for period & skincare tracking.</p>
+        <p><strong>Tech:</strong> C++</p>
+        <a href="https://github.com/Rishi-ta/Femicare" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="project-card">
+        <h3>🌐 My First Website</h3>
+        <p>A simple, responsive portfolio website.</p>
+        <p><strong>Tech:</strong> HTML, CSS</p>
+        <a href="https://rishi-ta.github.io/my-website" target="_blank">Live Demo</a>
+      </div>
+
+      <div class="project-card">
+        <h3>🌍 CSS Solar System</h3>
+        <p>Orbit animation using pure CSS.</p>
+        <p><strong>Tech:</strong> HTML, CSS</p>
+        <a href="https://github.com/Rishi-ta/css-solar-system" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <p><strong>Jaypee Institute of Information Technology</strong><br>
+      B.Tech in Computer Science Engineering (2024–2028)<br>
+      <em>Current Student - Passionate about web development and programming</em></p>
+    </section>
+
+    <section class="resume">
+      <h2>Resume</h2>
+      <a href="resume.pdf" download class="resume-download">📄 Download Resume</a>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:jharishita23@gmail.com">📧 Email</a>
+        <a href="https://github.com/Rishi-ta" target="_blank">💻 GitHub</a>
+        <a href="https://www.linkedin.com/in/rishita-jha-47a355327" target="_blank">💼 LinkedIn</a>
+        <a href="https://www.instagram.com/rishitaa_031/" target="_blank">📸 Instagram</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>©️ 2025 Rishita Jha. All rights reserved.</p>
+      <p>Crafted with 💜 and lots of CSS magic ✨</p>
+    </footer>
+  </div>
+</body>
+</html>
