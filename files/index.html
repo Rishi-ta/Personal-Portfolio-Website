@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rishita Jha — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-web">
+    <svg viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+      <line class="loader-line" x1="700" y1="0" x2="200" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.5"/>
+      <line class="loader-line" x1="700" y1="0" x2="400" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.5"/>
+      <line class="loader-line" x1="700" y1="0" x2="600" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+      <line class="loader-line" x1="700" y1="0" x2="700" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+      <line class="loader-line" x1="700" y1="0" x2="900" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.4"/>
+      <line class="loader-line" x1="700" y1="0" x2="1100" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.5"/>
+      <line class="loader-line" x1="700" y1="0" x2="1300" y2="900" stroke="#8B0000" stroke-width="1" opacity="0.5"/>
+      <path class="loader-line" d="M 100 150 Q 700 100 1300 150" fill="none" stroke="#1A237E" stroke-width="1" opacity="0.4"/>
+      <path class="loader-line" d="M 50 350 Q 700 250 1350 350" fill="none" stroke="#1A237E" stroke-width="1" opacity="0.4"/>
+      <path class="loader-line" d="M 0 550 Q 700 420 1400 550" fill="none" stroke="#1A237E" stroke-width="1" opacity="0.4"/>
+    </svg>
+  </div>
+  <div class="loader-logo">RJ</div>
+  <div class="loader-status" id="loader-status">Spinning up the web&hellip;</div>
+  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+</div>
+
+<!-- WEB CURSOR TRAIL (signature element) -->
+<svg id="web-cursor" width="100%" height="100%">
+  <line id="web-line" x1="0" y1="0" x2="0" y2="0" stroke="#D32F2F" stroke-width="1"/>
+</svg>
+<div id="cursor-dot"></div>
+
+<!-- 3D SKYLINE BACKGROUND -->
+<canvas id="skyline-canvas"></canvas>
+<div class="grain"></div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" href="#hero">RJ<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#skills" data-anchor>Skills</a></li>
+    <li><a href="#projects" data-anchor>Projects</a></li>
+    <li><a href="#education" data-anchor>Education</a></li>
+    <li><a href="#ai-section" data-anchor>Ask AI</a></li>
+    <li><a href="#contact" data-anchor>Contact</a></li>
+  </ul>
+  <a href="resume.pdf" download class="nav-resume">Resume</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">B.Tech CSE &middot; Jaypee Institute &middot; 2024&ndash;2028</div>
+    <h1 class="hero-name" id="hero-name">
+      <span class="line">RISHITA</span>
+      <span class="line outline">JHA</span>
+    </h1>
+    <p class="hero-sub">Building things on the web, one strand at a time.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">C</span>
+      <span class="hero-tag">Backend Development</span>
+      <span class="hero-tag">Python</span>
+      <span class="hero-tag">DSA</span>
+      <span class="hero-tag">SQL</span>
+      <span class="hero-tag">HTML &amp; CSS</span>
+      <span class="hero-tag">C++</span>
+      <span class="hero-tag">AI &amp; Machine Learning</span>
+      <span class="hero-tag">Cyber Security</span>
+    </div>
+    <div class="hero-cta">
+      <a href="resume.pdf" download class="btn-primary">Download Resume</a>
+      <a href="#projects" data-anchor class="btn-outline">See My Work</a>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll to swing through</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- SKILLS — WEB MAP -->
+<section id="skills">
+  <div class="section-head reveal">
+    <div class="section-label">01 &mdash; What I Know</div>
+    <h2 class="section-title">The <span>Web</span> I've Spun</h2>
+    <p class="section-intro">Every skill is a strand &mdash; connected, reinforced, still growing. Hover a node to see where it's used.</p>
+  </div>
+  <div class="web-map-wrap reveal">
+    <svg id="skill-web" viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg"></svg>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-head reveal">
+    <div class="section-label">02 &mdash; What I've Built</div>
+    <h2 class="section-title">Lit <span>Windows</span></h2>
+    <p class="section-intro">Three stops on the skyline. Click one to swing in closer.</p>
+  </div>
+
+  <div class="projects-list">
+    <article class="project-card reveal" data-project="whatsapp">
+      <div class="project-card-top">
+        <span class="project-index">01</span>
+        <span class="project-status">ai agent</span>
+      </div>
+      <h3 class="project-name">WhatsApp AI Agent</h3>
+      <p class="project-tagline">Intelligent conversations, automated responses on WhatsApp.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">AI/ML</span>
+        <span class="tech-tag">WhatsApp API</span>
+      </div>
+      <span class="project-expand">Open case file &rarr;</span>
+    </article>
+
+    <article class="project-card reveal" data-project="rag">
+      <div class="project-card-top">
+        <span class="project-index">02</span>
+        <span class="project-status">ai / rag</span>
+      </div>
+      <h3 class="project-name">Enterprise Knowledge Base RAG</h3>
+      <p class="project-tagline">Query your company knowledge base with natural language.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">LLMs</span>
+        <span class="tech-tag">Vector DB</span>
+      </div>
+      <span class="project-expand">Open case file &rarr;</span>
+    </article>
+
+    <article class="project-card reveal" data-project="bachat">
+      <div class="project-card-top">
+        <span class="project-index">03</span>
+        <span class="project-status">finance app</span>
+      </div>
+      <h3 class="project-name">BachatBhaiya</h3>
+      <p class="project-tagline">Personal finance tracking made simple and actionable.</p>
+      <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">SQL</span>
+        <span class="tech-tag">Backend</span>
+      </div>
+      <span class="project-expand">Open case file &rarr;</span>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECT DETAIL OVERLAY -->
+<div id="project-overlay">
+  <button id="overlay-close" aria-label="Close project detail">&times;</button>
+  <div class="overlay-inner" id="overlay-content"></div>
+</div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-head reveal">
+    <div class="section-label">03 &mdash; My Journey</div>
+    <h2 class="section-title">Origin <span>Story</span></h2>
+  </div>
+  <div class="edu-card reveal">
+    <div class="edu-main">
+      <div class="edu-school">Jaypee Institute of Information Technology</div>
+      <div class="edu-degree">B.Tech in Computer Science Engineering</div>
+      <p class="edu-note">Currently building projects across the stack &mdash; from console apps to the page you're looking at right now.</p>
+    </div>
+    <div class="edu-period">2024 &ndash; 2028</div>
+  </div>
+</section>
+
+<!-- AI SECTION -->
+<section id="ai-section">
+  <div class="section-head reveal">
+    <div class="section-label">04 &mdash; Ask Around</div>
+    <h2 class="section-title">Ask <span>About Me</span></h2>
+    <p class="section-intro">A quick assistant that knows my skills, projects, and education. Ask it anything below.</p>
+  </div>
+  <div class="ai-container reveal">
+    <div class="ai-header">
+      <div class="ai-dot"></div>
+      <div class="ai-title">Rishita's Assistant &mdash; Online</div>
+    </div>
+    <div class="ai-messages" id="chat-messages">
+      <div class="msg bot">Hey! Ask me about Rishita's skills, projects, education, or how to get in touch. 🕸️</div>
+    </div>
+    <div class="typing-indicator" id="typing">
+      <div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>
+    </div>
+    <div class="ai-suggestions">
+      <button class="ai-chip" data-q="What projects has she built?">Her projects</button>
+      <button class="ai-chip" data-q="What are her strongest skills?">Top skills</button>
+      <button class="ai-chip" data-q="Where does she study?">Education</button>
+      <button class="ai-chip" data-q="How can I contact Rishita?">Contact info</button>
+    </div>
+    <div class="ai-input-row">
+      <input id="chat-input" class="ai-input" type="text" placeholder="Ask me anything about Rishita…" maxlength="200"/>
+      <button class="ai-send" id="send-btn" aria-label="Send">&uarr;</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-head reveal">
+    <div class="section-label">05 &mdash; Get In Touch</div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+  </div>
+  <div class="contact-links reveal">
+    <a class="contact-link" href="mailto:jharishita23@gmail.com"><span class="cl-icon">&#9993;</span> Email</a>
+    <a class="contact-link" href="https://github.com/Rishi-ta" target="_blank" rel="noopener"><span class="cl-icon">&#9670;</span> GitHub</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/rishita-jha-47a355327" target="_blank" rel="noopener"><span class="cl-icon">&#9633;</span> LinkedIn</a>
+    <a class="contact-link" href="https://www.instagram.com/rishitaa_031/" target="_blank" rel="noopener"><span class="cl-icon">&#9679;</span> Instagram</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Rishita Jha &nbsp;&middot;&nbsp; With great power comes great responsibility</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
